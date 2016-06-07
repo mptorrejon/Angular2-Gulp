@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>Ng App Unit Tests</title>
+		<link rel="stylesheet" href="./node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+		<script src="./node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+		<script src="./node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+		<script src="./node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+		
+		<!--System rquired libraries-->
+		<script src="node_modules/zone.js/dist/zone.js"></script>
+		<script src="node_modules/systemjs/dist/system.src.js"></script>
+		<script src="node_modules/reflect-metadata/Reflect.js"></script>
+		<script src="../../systemjs.config.js"></script>
+		<script>
+			System.import('unit-test')
+			.then(function(m){
+				console.log("loading module: ");
+				console.log(m);
+			})
+			.catch(function(err){ 
+				console.error(err);
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Angular2 - Unit Testing</h1>
+	</body>
+</html>
