@@ -1,4 +1,4 @@
-System.register(['../dispatcher/dispatcher'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -6,29 +6,34 @@ System.register(['../dispatcher/dispatcher'], function(exports_1, context_1) {
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var dispatcher_1;
-    var CartStore;
+    var core_1;
+    var cartStore;
     return {
         setters:[
-            function (dispatcher_1_1) {
-                dispatcher_1 = dispatcher_1_1;
+            function (core_1_1) {
+                core_1 = core_1_1;
             }],
         execute: function() {
-            CartStore = (function (_super) {
-                __extends(CartStore, _super);
-                function CartStore() {
-                    _super.call(this);
-                    this.cartItems = [];
+            // var injector = ReflectiveInjector.resolveAndCreate([
+            // 	Dispatcher
+            // ]);
+            cartStore = (function (_super) {
+                __extends(cartStore, _super);
+                function cartStore() {
+                    _super.apply(this, arguments);
                 }
-                CartStore.prototype.addItem = function (catalogItem) {
-                    console.log('inside store additem');
+                // dispatch = injector.get(Dispatcher);
+                cartStore.prototype.contructor = function () {
+                    _super.call(this);
+                    disp = new core_1.EventEmitter();
+                    // console.log(new EventEmitter());
+                    disp.subscribe(function (payload) {
+                        console.log('hereeeeeee');
+                    });
                 };
-                CartStore.prototype.removeItem = function (cartItem) {
-                    console.log('inside store removeItem');
-                };
-                return CartStore;
-            }(dispatcher_1.Dispatcher));
-            exports_1("CartStore", CartStore);
+                return cartStore;
+            }(core_1.EventEmitter));
+            exports_1("cartStore", cartStore);
         }
     }
 });

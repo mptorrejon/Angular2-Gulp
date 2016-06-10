@@ -8,27 +8,23 @@ var gulp = require('gulp'),
 	superstatic = require('superstatic');;
 
 gulp.task('compile-ts', function(){
-	var sourceFiles = [ config.allTs];
+
+	var sourceFiles = [ config.allTs ];
+
 	var tsResult = gulp
 					.src(sourceFiles)
+
 					.pipe(tsc(tsProject));
 
 	return tsResult.js
 			.pipe( gulp.dest(config.tsOutputPath) );
 });
 
-gulp.task('compile-ts-unitTest', function(){
-	var sourceFiles = [config.unitTests];
-	var tsResults = gulp
-					.src(sourceFiles)
-					.pipe(tsc(tsProject));
-
-	return tsResults.js
-			.pipe( gulp.dest(config.testOutput) );
-});
 
 gulp.task('serve', ['compile-ts'], function(){
 	gulp.watch([config.allTs], ['compile-ts']);
+
+
 	browserSync({
 		port: 3001,
 		//sets watchers for index.html, js and html files hosted in corresponding folders
@@ -43,6 +39,7 @@ gulp.task('serve', ['compile-ts'], function(){
 			middleware: superstatic({debug: false})
 		}
 	});
+
 });
 
 

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../actions/cart.actions'], function(exports_1, context_1) {
+System.register(['@angular/core', '../actions/cart.actions', '../store/catalogItems.store'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,19 @@ System.register(['@angular/core', '../actions/cart.actions'], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, cart_actions_1;
+    var core_1, cart_actions_1, catalogItems_store_1, core_2;
     var catalogItems, MyFlux;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+                core_2 = core_1_1;
             },
             function (cart_actions_1_1) {
                 cart_actions_1 = cart_actions_1_1;
+            },
+            function (catalogItems_store_1_1) {
+                catalogItems_store_1 = catalogItems_store_1_1;
             }],
         execute: function() {
             catalogItems = [
@@ -27,20 +31,35 @@ System.register(['@angular/core', '../actions/cart.actions'], function(exports_1
                 { id: 3, title: 'Item #3', cost: 3 }
             ];
             MyFlux = (function () {
-                function MyFlux(action) {
-                    this.action = action;
+                function MyFlux() {
+                    this.counterValue = 0;
+                    this.counterChange = new core_2.EventEmitter();
                 }
-                MyFlux.prototype.addToCart = function () {
-                    console.log('adding new item...');
-                    this.action.addItem('new item');
+                MyFlux.prototype.increment = function () {
+                    console.log('increment');
+                    this.counterValue++;
+                    this.counterChange.emit({
+                        value: this.counterValue
+                    });
                 };
+                MyFlux.prototype.decrement = function () {
+                    console.log('decrement');
+                    this.counterValue--;
+                    this.counterChange.emit({
+                        value: this.counterValue
+                    });
+                };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], MyFlux.prototype, "counterValue", void 0);
                 MyFlux = __decorate([
                     core_1.Component({
                         selector: 'flux-arch',
                         templateUrl: '../templates/myflux.templates.html',
-                        providers: [cart_actions_1.cartActions]
+                        providers: [cart_actions_1.cartActions, catalogItems_store_1.cartStore]
                     }), 
-                    __metadata('design:paramtypes', [cart_actions_1.cartActions])
+                    __metadata('design:paramtypes', [])
                 ], MyFlux);
                 return MyFlux;
             }());

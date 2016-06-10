@@ -4,19 +4,32 @@ let catalogItems = [
 	{ id: 3, title: 'Item #3', cost: 3 }
 ];
 
-import {Component} from '@angular/core';
+import {Component, Input, Output,} from '@angular/core';
 import {cartActions} from '../actions/cart.actions';
+import {cartStore} from '../store/catalogItems.store';
+import { EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'flux-arch',
 	templateUrl: '../templates/myflux.templates.html',
-	providers: [cartActions]
+	providers: [cartActions, cartStore]
 }) export class MyFlux {
 	
-	constructor(private action: cartActions){}
-	
-	addToCart(){
-		console.log('adding new item...');
-		this.action.addItem('new item');
+	@Input() counterValue = 0;
+ 	public counterChange = new EventEmitter();
+ 	
+	increment() {
+		console.log('increment');
+		this.counterValue++;
+	   	this.counterChange.emit({
+      		value: this.counterValue
+	   	})
 	}
+	decrement() {
+		console.log('decrement');
+		this.counterValue--;
+		this.counterChange.emit({
+			value: this.counterValue
+   		})
+  }
 }

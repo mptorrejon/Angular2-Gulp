@@ -28,7 +28,8 @@
     'lodash': 'node_modules/lodash/lodash.js',
     'ng2-modal': 'node_modules/ng2-bs3-modal/src/ng2-bs3-modal/ng2-bs3-modal.js',
     'unit-test': 'tests/unit-tests',
-    'testing': 'node_modules/@angular/core/testing'
+    'testing': 'node_modules/@angular/core/testing',
+    'ng2-modal': 'node_modules/ng2-bs3-modal/src/ng2-bs3-modal/ng2-bs3-modal.js'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension

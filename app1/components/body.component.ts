@@ -9,6 +9,7 @@ import {MyFlux} from './myflux.component';
 @Component({
 	selector: 'my-body',
 	templateUrl: '../templates/body.template.html',
+
 	directives: [
 		SearchInput, 
 		ShowResults, 
@@ -17,6 +18,7 @@ import {MyFlux} from './myflux.component';
 		MyModal,
 		MyFlux
 	],
+
 	styles: [`
 		.panel{
 			display:inline-block;
