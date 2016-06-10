@@ -25,6 +25,7 @@ System.register(['@angular/core', './body.component', 'rxjs/add/operator/map'], 
             // import { MODAL_DIRECTIVES, ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
             AppComponent = (function () {
                 function AppComponent() {
+                    this.name = 'MAURICIO';
                 }
                 AppComponent = __decorate([
                     core_1.Component({

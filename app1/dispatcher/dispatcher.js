@@ -1,25 +1,17 @@
-// import {Injectable} from '@angular/core';
-System.register([], function(exports_1, context_1) {
+System.register(["@angular/core"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var Dispatcher;
+    var core_1;
+    var dispatcher;
     return {
-        setters:[],
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            }],
         execute: function() {
-            Dispatcher = (function () {
-                function Dispatcher() {
-                }
-                // Dispatcher = new EventEmitter();
-                // constructor(private Dispatcher:EventEmitter ){}
-                Dispatcher.prototype.emit = function (event) {
-                    console.log('========================');
-                    console.log(event);
-                    // console.log( new EventEmitter() );
-                };
-                return Dispatcher;
-            }());
-            exports_1("Dispatcher", Dispatcher);
-            ;
+            //dispatcher instance remains the same throughtout the whole app
+            dispatcher = new core_1.EventEmitter();
+            exports_1("default",dispatcher);
         }
     }
 });

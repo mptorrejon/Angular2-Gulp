@@ -12,5 +12,5 @@ import 'rxjs/add/operator/map';
 	// providers: [HTTP_PROVIDERS, ]
 })export class AppComponent{
 	
-
+	name: string = 'MAURICIO';
 }; 

@@ -1,35 +1,34 @@
-let catalogItems = [
-	{ id: 1, title: 'Item #1', cost: 1 },
-	{ id: 2, title: 'Item #2', cost: 2 },
-	{ id: 3, title: 'Item #3', cost: 3 }
-];
-
-import {Component, Input, Output,} from '@angular/core';
-import {cartActions} from '../actions/cart.actions';
-import {cartStore} from '../store/catalogItems.store';
-import { EventEmitter } from '@angular/core';
-
+import {Component, Inject, OnInit, OnDestroy} from "@angular/core";
+import {CounterActions} from "../actions/cart.actions";
+import {CounterStore} from "../store/catalogItems.store";
 @Component({
-	selector: 'flux-arch',
-	templateUrl: '../templates/myflux.templates.html',
-	providers: [cartActions, cartStore]
-}) export class MyFlux {
-	
-	@Input() counterValue = 0;
- 	public counterChange = new EventEmitter();
- 	
+    selector: "flux-arch",
+    providers: [CounterActions, CounterStore],
+    templateUrl: "../templates/myflux.templates.html"
+})
+export class MyFlux implements OnInit, OnDestroy {
+    counter:number = 0;
+
+	private counterActions;
+	private counterStore;
+
+    constructor(@Inject(CounterActions)counterActions:CounterActions,
+        		@Inject(CounterStore)counterStore:CounterStore) {
+       	this.counterActions  = counterActions;
+    	this.counterStore = counterStore;
+   	}
+   	ngOnInit() {
+		this.counter = this.counterStore.getCounter();
+		this.counterStore.subscribe(() => this.counter = this.counterStore.getCounter());
+	}
+	ngOnDestroy() {}
 	increment() {
-		console.log('increment');
-		this.counterValue++;
-	   	this.counterChange.emit({
-      		value: this.counterValue
-	   	})
+		this.counterActions.increment();
 	}
 	decrement() {
-		console.log('decrement');
-		this.counterValue--;
-		this.counterChange.emit({
-			value: this.counterValue
-   		})
-  }
+		this.counterActions.decrement();
+	}
+	reset() {
+		this.counterActions.reset();
+	}
 }

@@ -1,23 +1,31 @@
-var ADD_ITEM = 'ADD_ITEM';
+import dispatcher from "../dispatcher/dispatcher";
 
-import { ReflectiveInjector, EventEmitter } from '@angular/core';
-import { Dispatcher } from '../dispatcher/dispatcher';
+//this could be hosted in a different file
+export const UPDATE_COUNTER = "UPDATE_COUNTER";
+export const RESET_COUNTER = "RESET_COUNTER";
 
-var injector = ReflectiveInjector.resolveAndCreate([
-	Dispatcher
-]);
+//delegates actions to the dispatcher instance
+export class CounterActions {
 
-export class cartActions extends EventEmitter<string>{
+	increment() {
+        this.updateOffsetDispatch(1);
+    }
 
-	dispatch = injector.get(Dispatcher);
+    decrement() {
+	    this.updateOffsetDispatch(-1);
+    }
 
-	addItem(item){
-		console.log('into cart.actions');
-		console.log(item);
-		this.dispatch.emit({
-			actionType: ADD_ITEM,
-			item: item,
-			name: "Mauricio"
-		});
+	reset() {
+    	dispatcher.emit({
+	        type: RESET_COUNTER,
+	        data: null
+	  	});
 	}
+
+    private updateOffsetDispatch(offset:number) {
+        dispatcher.emit({
+            type: UPDATE_COUNTER,
+            data: offset
+        });
+    }
 }

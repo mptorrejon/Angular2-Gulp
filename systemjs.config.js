@@ -29,7 +29,8 @@
     'ng2-modal': 'node_modules/ng2-bs3-modal/src/ng2-bs3-modal/ng2-bs3-modal.js',
     'unit-test': 'tests/unit-tests',
     'testing': 'node_modules/@angular/core/testing',
-    'ng2-modal': 'node_modules/ng2-bs3-modal/src/ng2-bs3-modal/ng2-bs3-modal.js'
+    'ng2-modal': 'node_modules/ng2-bs3-modal/src/ng2-bs3-modal/ng2-bs3-modal.js',
+    'immutable': 'node_modules/immutable/dist/immutable.js'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -61,7 +62,8 @@
     'angular2-datatable': {main: 'datatables.js', defaultExtension: 'js'},
     'lodash': { defaultExtension:'js'},
     'ng2-modal': { defaultExtension: 'js' },
-    'testing': {main: 'testing.js', defaultExtension:'js'}
+    'testing': {main: 'testing.js', defaultExtension:'js'},
+    'immutable': {defaultExtension:'js'}
   };
   /*IS THIS REALLY NECESSARY? IF SO, WHY CANT i JUST DO IT LIKE THE ABOVE...*/
   /*var packageNames = [

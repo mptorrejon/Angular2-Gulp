@@ -1,14 +1,11 @@
 <h1>Angular2 & Flux</h1>
-<table mytable>
+<table >
 	<tr>
 		<td>
-			<button (click)="decrement();" class="counter__button">
-          		-
-	        </button>
-	        <input type="text" class="counter__input" [value]="counterValue">
-	        <button (click)="increment();" class="counter__button">
-				+
-	        </button>
+			Counter: {{ counter }}
+		    <button (click)="increment()" >+</button>
+		    <button (click)="decrement()" >-</button>
+		    <button (click)="reset()" >Reset</button>
 		</td>
 	</tr>
 </table>
