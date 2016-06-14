@@ -46,6 +46,8 @@ System.register(["@angular/core", "immutable", "../actions/cart.actions", "../di
                             default: break;
                         }
                         //quick comparison to check if value has changed
+                        console.log(_this.store);
+                        console.log(oldStore);
                         if (!_this.store.equals(oldStore)) {
                             _this.emit("changed");
                         }

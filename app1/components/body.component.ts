@@ -5,6 +5,8 @@ import {MyForm} from './myform.component';
 import {MyTable} from './mytable.component';
 import {MyModal} from './mymodal.component';
 import {MyFlux} from './myflux.component';
+import {DataBinding} from './databinding.component';
+import {MyRouter} from './router.component';
 
 @Component({
 	selector: 'my-body',
@@ -16,7 +18,9 @@ import {MyFlux} from './myflux.component';
 		MyForm, 
 		MyTable, 
 		MyModal,
-		MyFlux
+		MyFlux,
+		DataBinding,
+		MyRouter
 	],
 
 	styles: [`

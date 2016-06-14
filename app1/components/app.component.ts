@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 	directives: [Body]
 	// providers: [HTTP_PROVIDERS, ]
 })export class AppComponent{
-	
+
 	name: string = 'MAURICIO';
+
 }; 

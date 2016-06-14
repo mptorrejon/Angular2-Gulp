@@ -24,13 +24,14 @@ export class CounterStore extends EventEmitter<string> {
                 case UPDATE_COUNTER:
                     this.store = this.store.update("counter", v => v + payload.data);
 				break;
-
                 case RESET_COUNTER:
                     this.store = this.store.update("counter", value => INITIAL_VALUE);
 				break;
                 default:break;
             }
             //quick comparison to check if value has changed
+            console.log(this.store);
+            console.log(oldStore);
             if (!this.store.equals(oldStore)) {
                 this.emit("changed");
             }

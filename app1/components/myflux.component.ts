@@ -12,8 +12,8 @@ export class MyFlux implements OnInit, OnDestroy {
 	private counterActions;
 	private counterStore;
 
-    constructor(@Inject(CounterActions)counterActions:CounterActions,
-        		@Inject(CounterStore)counterStore:CounterStore) {
+    constructor( @Inject(CounterActions)counterActions:CounterActions,
+        		 @Inject(CounterStore)counterStore:CounterStore) {
        	this.counterActions  = counterActions;
     	this.counterStore = counterStore;
    	}
