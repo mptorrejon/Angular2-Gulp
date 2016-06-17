@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,35 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var Home;
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
+    var core_1, router_deprecated_1;
+    var About;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             }],
         execute: function() {
-            Home = (function () {
-                function Home() {
+            About = (function () {
+                function About(params) {
+                    this.id = +params.get('id');
                 }
-                Home = __decorate([
+                About = __decorate([
                     core_1.Component({
-                        template: '<h3>This is Home Component</h3>'
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], Home);
-                return Home;
+                        template: '<h3>This is About Component {{id}}</h3>',
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES]
+                    }),
+                    __param(0, core_1.Inject(router_deprecated_1.RouteParams)), 
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams])
+                ], About);
+                return About;
             }());
-            exports_1("Home", Home);
+            exports_1("About", About);
         }
     }
 });

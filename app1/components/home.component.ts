@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
 
 @Component({
-	template: '<h1>Search for a Github user and view their profile</h1>'
-})export class Home{}
+	template: '<h3>This is Home Component</h3>'
+}) export class Home{}

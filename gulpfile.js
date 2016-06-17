@@ -13,13 +13,20 @@ gulp.task('compile-ts', function(){
 
 	var tsResult = gulp
 					.src(sourceFiles)
-
 					.pipe(tsc(tsProject));
-
 	return tsResult.js
 			.pipe( gulp.dest(config.tsOutputPath) );
 });
 
+// gulp.task('compile-datepicker', function(){
+// 	var mydatepickerSrc = [ 'node_modules/MyDatePicker/**/*.ts'];
+// 	var datepickerResult = gulp
+// 							.src(mydatepickerSrc)
+// 							.pipe(tsc(tsProject));
+
+// 	return datepickerResult.js
+// 			.pipe( gulp.dest('./mydatepickerSrc/') );
+// });
 
 gulp.task('serve', ['compile-ts'], function(){
 	gulp.watch([config.allTs], ['compile-ts']);

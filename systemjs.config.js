@@ -19,6 +19,7 @@
     '@angular2-material/card': 'node_modules/@angular2-material/card',
     '@angular2-material/input': 'node_modules/@angular2-material/input',
     '@angular2-material/toolbar': 'node_modules/@angular2-material/toolbar',
+
     'app': 'app', // 'dist',
     'rxjs': 'node_modules/rxjs',
     'symbol-observable': 'node_modules/symbol-observable',
@@ -32,7 +33,6 @@
     'ng2-modal': 'node_modules/ng2-bs3-modal/src/ng2-bs3-modal/ng2-bs3-modal.js',
     'immutable': 'node_modules/immutable/dist/immutable.js'
   };
-
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     //this could be refactored in a forEach loop=======================
@@ -48,6 +48,7 @@
     'unit-test': {main:'first.spec.js', defaultExtension: 'js'}, /*UNIT TESTING*/
     'rxjs': { defaultExtension: 'js' },
     'symbol-observable': { main: 'index.js', defaultExtension: 'js' },
+    //===================================================================
     //this could be refactored using a foreach loop=====================
     '@angular/common': { main: 'index.js', defaultExtension: 'js' },
     '@angular/compiler': { main: 'index.js', defaultExtension: 'js' },
@@ -56,6 +57,7 @@
     '@angular/platform-browser': { main: 'index.js', defaultExtension: 'js' },
     '@angular/platform-browser-dynamic': { main: 'index.js', defaultExtension: 'js' },
     '@angular/router': { main: 'index.js', defaultExtension: 'js' },
+    '@angular/router-deprecated': {main: 'index.js', defaultExtension: 'js'},
     'ng2-formly': { main: 'core.js', defaultExtension: 'js' },
     // 'ng2-formly/template': {main: 'template.js', defaultExtension: 'js'}
     //================================================================
