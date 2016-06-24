@@ -7,7 +7,10 @@ declare var moment:any;
 	styleUrls: ['./app1/components/datepicker.css'],
 	outputs: ['selectedDate']
 })
-
+/*
+	+ Needs work when user enters a date and then clicks the calendar icon,
+	throws an error  when toString is called
+*/
 export class DatePicker implements OnChanges{
 	@Input() minDate:string;
     @Input() maxDate:string;

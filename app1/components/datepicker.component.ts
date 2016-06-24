@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {DatePicker} from './datepicker';
 
+//initializes date-picker tag and all values/data-binding
+//requires DatePicker implementation.
 @Component({
 	selector: '<date>',
     template: `
@@ -17,7 +19,7 @@ import {DatePicker} from './datepicker';
         </date-picker>`,
 	directives: [DatePicker]
 })export class DatePickerComponent{
-
+	//sets all variables for datapicker to work propertly
 	private selDate:string='MM/DD/YYYY';
     private minDate:string='01/01/2016';
     private maxDate:string='12/31/2017';

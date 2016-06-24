@@ -21,8 +21,11 @@ System.register(['@angular/core', './datepicker'], function(exports_1, context_1
                 datepicker_1 = datepicker_1_1;
             }],
         execute: function() {
+            //initializes date-picker tag and all values/data-binding
+            //requires DatePicker implementation.
             DatePickerComponent = (function () {
                 function DatePickerComponent() {
+                    //sets all variables for datapicker to work propertly
                     this.selDate = 'MM/DD/YYYY';
                     this.minDate = '01/01/2016';
                     this.maxDate = '12/31/2017';

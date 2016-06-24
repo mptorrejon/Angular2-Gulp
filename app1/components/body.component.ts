@@ -8,6 +8,7 @@ import {MyFlux} from './myflux.component';
 import {DataBinding} from './databinding.component';
 import {MyRouter} from './router.component';
 import {DatePickerComponent} from './datepicker.component';
+import {LinkedIn} from './linkedin.component';
 
 @Component({
 	selector: 'my-body',
@@ -22,7 +23,8 @@ import {DatePickerComponent} from './datepicker.component';
 		MyFlux,
 		DataBinding,
 		MyRouter,
-		DatePickerComponent
+		DatePickerComponent,
+		LinkedIn
 	],
 
 	styles: [`
