@@ -22,18 +22,26 @@
   <script src="node_modules/ng2-bs3-modal/bundles/ng2-bs3-modal.js"></script>
   <script>
 //========================================================
-    // // test function to be called after API script has been
-    // function onload(){
-    //   console.log('has loaded');
-    //   IN.User.authorize(logged, rightAfter);
-    // }
-    // function logged(){
-    //   console.log(IN.User.isAuthorized());
-    //   console.log('user is logged in');
-    // }
-    // function rightAfter(){
-    //   console.log('Right After');
-    // }
+    // test function to be called after API script has been
+    function onload(){
+      console.log('has loaded');
+      IN.User.authorize(logged, rightAfter);
+      IN.API.Raw('/company-search:(companies:(id,name,logo_url))?keywords=senior&format=json')
+      .result(function(value) {
+        console.log(JSON.stringify(value));
+      })
+      .error(function(error) {
+        alert(JSON.stringify(error));
+      });
+    }
+    function logged(){
+      console.log(IN.User.isAuthorized());
+      console.log('user is logged in');
+    }
+    function rightAfter(){
+      console.log('Right After???');
+      console.log(IN.User.isAuthorized());
+    }
 //========================================================
     System.import('app1')
     .then(function(m){

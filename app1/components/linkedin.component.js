@@ -21,6 +21,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
             LinkedIn = (function () {
                 function LinkedIn() {
                 }
+                // test function to be called after API script has been called
+                LinkedIn.prototype.onload = function () {
+                    alert('has loaded');
+                };
                 LinkedIn = __decorate([
                     core_1.Component({
                         selector: 'linkedin',
