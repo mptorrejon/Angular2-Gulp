@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'rxjs/Rx'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -20,7 +20,8 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
             function (http_1_1) {
                 http_1 = http_1_1;
                 http_2 = http_1_1;
-            }],
+            },
+            function (_1) {}],
         execute: function() {
             WikiService = (function () {
                 function WikiService(/*private http: Http,*/ jsonp) {
@@ -56,9 +57,10 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.http = http;
                 }
                 CompanySearch.prototype.getCompany = function (name) {
-                    var cName = this.http
-                        .get('http://localhost:5000/search?name=' + name);
-                    // console.log(cName);
+                    var params = new http_1.URLSearchParams();
+                    params.set('name', name);
+                    var cName = this.jsonp
+                        .get('http://localhost:5000/search', { params: params }).toPromise();
                     return cName;
                 };
                 CompanySearch = __decorate([

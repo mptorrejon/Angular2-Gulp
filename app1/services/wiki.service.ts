@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import {URLSearchParams, Http, Response} from '@angular/http';
 import {Jsonp, Http, Headers, RequestOptions} from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class WikiService{
@@ -35,10 +36,11 @@ export class CompanySearch{
 	constructor( private jsonp: Jsonp, private http:Http){}
 	
 	getCompany(name: string) {
-		
-		let cName = this.http
-			.get('http://localhost:5000/search?name='+name );
+		let params = new URLSearchParams();
+		params.set('name', name);
 
-		// console.log(cName);
+		let cName = this.jsonp
+			.get('http://localhost:5000/search', {params} ).toPromise();
+
 		return cName;
 	}
