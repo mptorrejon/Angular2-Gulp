@@ -20,8 +20,12 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         execute: function() {
             DataBinding = (function () {
                 function DataBinding() {
-                    this.myname = 'Mauricio';
+                    this.myname = '';
+                    this.name = this.myname;
                 }
+                DataBinding.prototype.text = function (value) {
+                    console.log(value.target.value);
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', String)

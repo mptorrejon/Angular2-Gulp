@@ -9,6 +9,7 @@ import {DataBinding} from './databinding.component';
 import {MyRouter} from './router.component';
 import {DatePickerComponent} from './datepicker.component';
 import {LinkedIn} from './linkedin.component';
+import {ClearBit} from './clearbit.component';
 
 @Component({
 	selector: 'my-body',
@@ -24,7 +25,8 @@ import {LinkedIn} from './linkedin.component';
 		DataBinding,
 		MyRouter,
 		DatePickerComponent,
-		LinkedIn
+		LinkedIn,
+		ClearBit
 	],
 
 	styles: [`

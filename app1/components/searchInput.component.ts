@@ -38,7 +38,7 @@ import { HTTP_PROVIDERS, JSONP_PROVIDERS, Jsonp } from '@angular/http';
 	getValue = (value) =>{
 		this.inputValue = value.target.value;
 		
-		value = this.wikiservice.getResults(this.inputValue).subscribe(resp=>{
+		this.wikiservice.getResults(this.inputValue).subscribe(resp=>{
 			// console.log( resp );
 		});
 	}

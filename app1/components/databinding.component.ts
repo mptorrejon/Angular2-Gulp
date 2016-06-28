@@ -5,6 +5,11 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
 	templateUrl: '../templates/databinding.template.html'
 })export class DataBinding{
 
-	@Input() myname:string = 'Mauricio';
-	
+	@Input() myname:string = '';
+
+	name: string = this.myname;
+
+	text(value){
+		console.log(value.target.value);
+	}
 }

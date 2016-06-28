@@ -17,6 +17,6 @@ import {Router, RouteParams, RouteConfig, RouterLink, ROUTER_DIRECTIVES} from '@
 	{ path: '/About/:id', component: About, as: 'About' }
 ])
 export class AppComponent{
+	constructor(){}
 	name: string = 'MAURICIO';
-	
-}; 
+};

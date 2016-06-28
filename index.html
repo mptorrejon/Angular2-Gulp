@@ -18,46 +18,50 @@
   <script src="node_modules/systemjs/dist/system.src.js"></script>
   <!--FORMLY-FORMS-->
   <script src="node_modules/ng2-formly/bundles/ng2-formly.min.js"></script>
-  <script src="systemjs.config.js"></script>
+  
   <script src="node_modules/ng2-bs3-modal/bundles/ng2-bs3-modal.js"></script>
-  <script>
-//========================================================
-    // test function to be called after API script has been
-    function onload(){
-      console.log('has loaded');
-      IN.User.authorize(logged, rightAfter);
-      IN.API.Raw('/company-search:(companies:(id,name,logo_url))?keywords=senior&format=json')
-      .result(function(value) {
-        console.log(JSON.stringify(value));
-      })
-      .error(function(error) {
-        alert(JSON.stringify(error));
-      });
-    }
-    function logged(){
-      console.log(IN.User.isAuthorized());
-      console.log('user is logged in');
-    }
-    function rightAfter(){
-      console.log('Right After???');
-      console.log(IN.User.isAuthorized());
-    }
-//========================================================
-    System.import('app1')
-    .then(function(m){
-    })
-    .catch(function(err){ console.error(err); });
-  </script>
-  <script type="text/javascript" src="//platform.linkedin.com/in.js">
-    api_key:   77dgleldtmxqfz
-    onLoad:    onload
+  <!--<script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key: 77dgleldtmxqfz
+    onLoad: onload
     authorize: true
-    lang:      en_US
+    lang: en_US
+  </script>-->
+
+  <script src="systemjs.config.js"></script>
+
+  <script>
+    //========================================================
+    // test function to be called after API script has been 
+    // function onload(){
+    //   console.log('has loaded');
+    //   IN.User.authorize(logged, rightAfter);
+    //   IN.API.Raw('/company-search:(companies:(id,name,logo_url))?keywords=senior&format=json')
+    //   .result(function(value) {
+    //     console.log(JSON.stringify(value));
+    //   })
+    //   .error(function(error) {
+    //     alert(JSON.stringify(error));
+    //   });
+    // }
+    // function logged(){
+    //   console.log(IN.User.isAuthorized());
+    //   console.log('user is logged in');
+    // }
+    // function rightAfter(){
+    //   console.log('Right After???');
+    //   console.log(IN.User.isAuthorized());
+    // }
+    //========================================================
+    System.import('app1')
+    .then(function(m){})
+    .catch(function(err){ console.error(err); });
+
   </script>
+  
 </head>
 
 <body>
-  <h1>Angular2 - Gulp.</h1>
+  <h1>Angular2 - Demos</h1>
   <my-app>Loading...</my-app>
 </body>
 

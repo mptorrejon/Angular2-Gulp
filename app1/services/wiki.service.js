@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, http_2;
-    var WikiService;
+    var WikiService, CompanySearch;
     return {
         setters:[
             function (core_1_1) {
@@ -27,17 +27,19 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.jsonp = jsonp;
                 }
                 WikiService.prototype.getResults = function (name) {
-                    // console.log(name);
                     var search = new http_1.URLSearchParams();
                     search.set('action', "opensearch");
                     search.set('search', name); //replace 'ma' for variable
                     search.set('format', 'json');
-                    return this.jsonp
+                    var rs = this.jsonp
                         .get('http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK', { search: search })
                         .map(this.extractData);
+                    console.log(rs);
+                    return rs;
                 };
                 //formats response into a json object
                 WikiService.prototype.extractData = function (res) {
+                    console.log(res);
                     var body = res.json();
                     return body || {};
                 };
@@ -48,6 +50,24 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 return WikiService;
             }());
             exports_1("WikiService", WikiService);
+            CompanySearch = (function () {
+                function CompanySearch(jsonp, http) {
+                    this.jsonp = jsonp;
+                    this.http = http;
+                }
+                CompanySearch.prototype.getCompany = function (name) {
+                    var cName = this.http
+                        .get('http://localhost:5000/search?name=' + name);
+                    // console.log(cName);
+                    return cName;
+                };
+                CompanySearch = __decorate([
+                    core_1.Injectable(), 
+                    __metadata('design:paramtypes', [http_2.Jsonp, http_1.Http])
+                ], CompanySearch);
+                return CompanySearch;
+            }());
+            exports_1("CompanySearch", CompanySearch);
         }
     }
 });

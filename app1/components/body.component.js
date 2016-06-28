@@ -1,4 +1,4 @@
-System.register(['@angular/core', './searchInput.component', './showResults.component', './myform.component', './mytable.component', './mymodal.component', './myflux.component', './databinding.component', './router.component', './datepicker.component', './linkedin.component'], function(exports_1, context_1) {
+System.register(['@angular/core', './searchInput.component', './showResults.component', './myform.component', './mytable.component', './mymodal.component', './myflux.component', './databinding.component', './router.component', './datepicker.component', './linkedin.component', './clearbit.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './searchInput.component', './showResults.comp
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, searchInput_component_1, showResults_component_1, myform_component_1, mytable_component_1, mymodal_component_1, myflux_component_1, databinding_component_1, router_component_1, datepicker_component_1, linkedin_component_1;
+    var core_1, searchInput_component_1, showResults_component_1, myform_component_1, mytable_component_1, mymodal_component_1, myflux_component_1, databinding_component_1, router_component_1, datepicker_component_1, linkedin_component_1, clearbit_component_1;
     var Body;
     return {
         setters:[
@@ -46,6 +46,9 @@ System.register(['@angular/core', './searchInput.component', './showResults.comp
             },
             function (linkedin_component_1_1) {
                 linkedin_component_1 = linkedin_component_1_1;
+            },
+            function (clearbit_component_1_1) {
+                clearbit_component_1 = clearbit_component_1_1;
             }],
         execute: function() {
             Body = (function () {
@@ -65,7 +68,8 @@ System.register(['@angular/core', './searchInput.component', './showResults.comp
                             databinding_component_1.DataBinding,
                             router_component_1.MyRouter,
                             datepicker_component_1.DatePickerComponent,
-                            linkedin_component_1.LinkedIn
+                            linkedin_component_1.LinkedIn,
+                            clearbit_component_1.ClearBit
                         ],
                         styles: ["\n\t\t.panel{\n\t\t\tdisplay:inline-block;\n\t\t\tvertical-align: top;\n\t\t\tmargin: 0px 10px;\n\t\t}\n\t"]
                     }), 

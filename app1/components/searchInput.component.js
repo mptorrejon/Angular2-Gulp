@@ -75,7 +75,7 @@ System.register(['@angular/core', '../services/wiki.service', '@angular/http'], 
                     this.inputValue = "";
                     this.getValue = function (value) {
                         _this.inputValue = value.target.value;
-                        value = _this.wikiservice.getResults(_this.inputValue).subscribe(function (resp) {
+                        _this.wikiservice.getResults(_this.inputValue).subscribe(function (resp) {
                             // console.log( resp );
                         });
                     };
