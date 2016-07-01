@@ -6,23 +6,32 @@ import { Observable } from 'rxjs/Rx';
 	selector: 'clearbit',
 	template: ` <h1>Search for Companies</h1>
 				<input (keyup)="getResults($event)" placeholder="Where do you work?" />
-				<div *ngFor="let item of mydata | async" >
-				</div>
-				<p>{{name}}</p>
-	`,
+				<ul *ngFor="let item of mydata">
+					<li >
+						<img src={{item.logo}} /> 
+						<span>{{item.name}}</span>
+					</li>
+				</ul>
+			`,
 	providers: [CompanySearch]
 }) export class ClearBit{
 	input: any = "";
-	mydata: Observable<string>;
+	mydata: Array<Number> = [2] ;
 
 	constructor(private cSearch: CompanySearch ){}
 
 	getResults(name){
 		this.input = name.target.value;
-		
-		this.cSearch.getCompany( this.input ).subscribe(function(data){
-			 // this.mydata = JSON.parse(data._body).results;
+		let that = this;
+		this.cSearch.getCompany(this.input)
+		.subscribe(function(data){
+			// this.mydata = [1, 2, 4];
 			console.log(data);
-		});
+			that.mydata = JSON.parse(data._body);
+			// console.log(that.mydata);
+			// console.log( this.mydata );
+			// that.mydata = this.data; 
+			// console.log(that);
+		}) ;
 	}
 }

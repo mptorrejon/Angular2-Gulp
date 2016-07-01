@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', 'rxjs/Rx'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Rx'], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, http_2;
+    var core_1, http_1;
     var WikiService, CompanySearch;
     return {
         setters:[
@@ -19,9 +19,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Rx'], function(exports_
             },
             function (http_1_1) {
                 http_1 = http_1_1;
-                http_2 = http_1_1;
-            },
-            function (_1) {}],
+            }],
         execute: function() {
             WikiService = (function () {
                 function WikiService(/*private http: Http,*/ jsonp) {
@@ -46,7 +44,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Rx'], function(exports_
                 };
                 WikiService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_2.Jsonp])
+                    __metadata('design:paramtypes', [http_1.Jsonp])
                 ], WikiService);
                 return WikiService;
             }());
@@ -57,15 +55,18 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Rx'], function(exports_
                     this.http = http;
                 }
                 CompanySearch.prototype.getCompany = function (name) {
-                    var params = new http_1.URLSearchParams();
-                    params.set('name', name);
-                    var cName = this.jsonp
-                        .get('http://localhost:5000/search', { params: params }).toPromise();
-                    return cName;
+                    var headers = new http_1.Headers();
+                    headers.append('Authorization', 'Bearer 5677ecf5dc2ff38d1c1df319d3e6ae32');
+                    // headers.append('Access-Control-Allow-Origin' , '*');
+                    // headers.append('Content-Type' , 'application/jsonp; charset=UTF-8');
+                    // let params = new URLSearchParams();
+                    // params.set('name', name);
+                    return this.http
+                        .get('https://autocomplete.clearbit.com/v1/companies/suggest?query=' + name, { headers: headers });
                 };
                 CompanySearch = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_2.Jsonp, http_1.Http])
+                    __metadata('design:paramtypes', [http_1.Jsonp, http_1.Http])
                 ], CompanySearch);
                 return CompanySearch;
             }());

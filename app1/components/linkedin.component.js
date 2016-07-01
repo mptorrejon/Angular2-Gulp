@@ -23,23 +23,6 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 function LinkedIn(elementRef) {
                     this.elementRef = elementRef;
                 }
-                // ngAfterContentInit(){
-                LinkedIn.prototype.ngOnInit = function () {
-                    // ngAfterViewInit(){
-                    // var a = document.createElement("script");
-                    // a.type = "text/javascript";
-                    // a.async = true;
-                    // a.src = "https://platform.linkedin.com/in.js?async=true";
-                    // // console.log(a);
-                    //    a.onload = function(){
-                    // 	IN.init({ api_key: '77dgleldtmxqfz', authorize: true, lang: 'en_US' });
-                    // 	// console.log('====');
-                    // 	// console.log( IN.ENV );
-                    // 	// console.log(IN.User);
-                    // };
-                    // var b = document.getElementsByTagName("script")[0];
-                    //    b.parentNode.insertBefore(a, b)
-                };
                 LinkedIn = __decorate([
                     core_1.Component({
                         selector: 'linkedin',

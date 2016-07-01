@@ -7,7 +7,7 @@
     if the foreach function is gonna concatenate them and add the object for file location
   part3: config paths are wrapped in an object to be passed to the System.config()
 */
-(function (global) {
+(function (global) { 
 
   // map tells the System loader where to look for things
   var map = {
@@ -46,7 +46,7 @@
     //=================================================================
     'app1': { main: 'main.js', defaultExtension: 'js' },
     'unit-test': {main:'first.spec.js', defaultExtension: 'js'}, /*UNIT TESTING*/
-    'rxjs': { defaultExtension: 'js' },
+    'rxjs': {defaultExtension: 'js' },
     'symbol-observable': { main: 'index.js', defaultExtension: 'js' },
     //===================================================================
     //this could be refactored using a foreach loop=====================

@@ -35,7 +35,7 @@ gulp.task('serve', ['compile-ts'], function(){
 	browserSync({
 		port: 3001,
 		//sets watchers for index.html, js and html files hosted in corresponding folders
-		files: ['index.html', 'app1/**/*.js', 'app/**/*.html', 'templates/**/*.html'],
+		files: ['index.html', 'app1/**/*.js', 'templates/**/*.html'],
 		injectChanges: true,
 		logFileChanges: false,
 		logLevel: 'silent',

@@ -1,9 +1,8 @@
 /*this file will hit Wikipedia API and return results*/
 // import { HTTP_PROVIDERS } from '@angular/http';
 import { Injectable } from '@angular/core';
-import {URLSearchParams, Http, Response} from '@angular/http';
-import {Jsonp, Http, Headers, RequestOptions} from '@angular/http';
-import 'rxjs/Rx';
+import {Jsonp, Headers, RequestOptions, URLSearchParams, Http, Response} from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class WikiService{
@@ -32,15 +31,20 @@ export class WikiService{
 }
 
 @Injectable()
-export class CompanySearch{
-	constructor( private jsonp: Jsonp, private http:Http){}
-	
+export class CompanySearch {
+	constructor(private jsonp: Jsonp, private http: Http) { }
+
 	getCompany(name: string) {
-		let params = new URLSearchParams();
-		params.set('name', name);
-
-		let cName = this.jsonp
-			.get('http://localhost:5000/search', {params} ).toPromise();
-
-		return cName;
+		let headers = new Headers();
+		headers.append('Authorization' , 'Bearer 5677ecf5dc2ff38d1c1df319d3e6ae32');
+		// headers.append('Access-Control-Allow-Origin' , '*');
+		// headers.append('Content-Type' , 'application/jsonp; charset=UTF-8');
+		
+		// let params = new URLSearchParams();
+		// params.set('name', name);
+	
+		return this.http
+			//https://autocomplete.clearbit.com/v1/companies/suggest?query=face
+			.get('https://autocomplete.clearbit.com/v1/companies/suggest?query='+name, {headers: headers });		
 	}
+}

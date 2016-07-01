@@ -225,7 +225,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 DatePicker = __decorate([
                     core_1.Component({
                         selector: 'date-picker',
-                        templateUrl: './app1/components/datepicker.html',
+                        templateUrl: '../../templates/datepicker.html',
                         styleUrls: ['./app1/components/datepicker.css'],
                         outputs: ['selectedDate']
                     }), 
