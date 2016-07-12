@@ -25,26 +25,20 @@ System.register(['@angular/core', '../services/wiki.service'], function(exports_
                 function ClearBit(cSearch) {
                     this.cSearch = cSearch;
                     this.input = "";
-                    this.mydata = [2];
                 }
                 ClearBit.prototype.getResults = function (name) {
                     this.input = name.target.value;
                     var that = this;
                     this.cSearch.getCompany(this.input)
                         .subscribe(function (data) {
-                        // this.mydata = [1, 2, 4];
-                        console.log(data);
+                        // that.mydata = JSON.parse(data._body).response.docs;
                         that.mydata = JSON.parse(data._body);
-                        // console.log(that.mydata);
-                        // console.log( this.mydata );
-                        // that.mydata = this.data; 
-                        // console.log(that);
                     });
                 };
                 ClearBit = __decorate([
                     core_1.Component({
                         selector: 'clearbit',
-                        template: " <h1>Search for Companies</h1>\n\t\t\t\t<input (keyup)=\"getResults($event)\" placeholder=\"Where do you work?\" />\n\t\t\t\t<ul *ngFor=\"let item of mydata\">\n\t\t\t\t\t<li >\n\t\t\t\t\t\t<img src={{item.logo}} /> \n\t\t\t\t\t\t<span>{{item.name}}</span>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t",
+                        template: " <h1>Search for Companies</h1>\n\t\t\t\t<input (keyup)=\"getResults($event)\" placeholder=\"Where do you work?\" />\n\t\t\t\t<ul *ngFor=\"let item of mydata\">\n\t\t\t\t\t<li >\n\t\t\t\t\t\t<img width=\"30\" height=\"30\" src={{item.logo}} />\n\t\t\t\t\t\t<span>{{item.name}}</span>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t",
                         providers: [wiki_service_1.CompanySearch]
                     }), 
                     __metadata('design:paramtypes', [wiki_service_1.CompanySearch])

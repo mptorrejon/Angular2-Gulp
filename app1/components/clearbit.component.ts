@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Rx';
 				<input (keyup)="getResults($event)" placeholder="Where do you work?" />
 				<ul *ngFor="let item of mydata">
 					<li >
-						<img src={{item.logo}} /> 
+						<img width="30" height="30" src={{item.logo}} />
 						<span>{{item.name}}</span>
 					</li>
 				</ul>
@@ -16,7 +16,7 @@ import { Observable } from 'rxjs/Rx';
 	providers: [CompanySearch]
 }) export class ClearBit{
 	input: any = "";
-	mydata: Array<Number> = [2] ;
+	mydata: Array<any> ;
 
 	constructor(private cSearch: CompanySearch ){}
 
@@ -25,13 +25,8 @@ import { Observable } from 'rxjs/Rx';
 		let that = this;
 		this.cSearch.getCompany(this.input)
 		.subscribe(function(data){
-			// this.mydata = [1, 2, 4];
-			console.log(data);
+			// that.mydata = JSON.parse(data._body).response.docs;
 			that.mydata = JSON.parse(data._body);
-			// console.log(that.mydata);
-			// console.log( this.mydata );
-			// that.mydata = this.data; 
-			// console.log(that);
-		}) ;
+		});
 	}
 }

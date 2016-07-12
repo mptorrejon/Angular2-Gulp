@@ -36,15 +36,17 @@ export class CompanySearch {
 
 	getCompany(name: string) {
 		let headers = new Headers();
-		headers.append('Authorization' , 'Bearer 5677ecf5dc2ff38d1c1df319d3e6ae32');
+		// headers.append('Authorization' , 'Bearer 5677ecf5dc2ff38d1c1df319d3e6ae32');
 		// headers.append('Access-Control-Allow-Origin' , '*');
-		// headers.append('Content-Type' , 'application/jsonp; charset=UTF-8');
+		// headers.append('Content-Type' , 'application/xhtml+xml');
 		
 		// let params = new URLSearchParams();
 		// params.set('name', name);
 	
 		return this.http
-			//https://autocomplete.clearbit.com/v1/companies/suggest?query=face
-			.get('https://autocomplete.clearbit.com/v1/companies/suggest?query='+name, {headers: headers });		
+			/*company logo & name lookup*/
+			.get('https://autocomplete.clearbit.com/v1/companies/suggest?query='+name, {headers:headers})
+			/*HRSA Solr current DB*/
+			// .get('http://hrsabmissdev2.nih.gov:9000/solr/select/?q=*%3A*&version=2.2&start=0&rows=10&indent=on&wt=json', {headers: headers });
 	}
 }
